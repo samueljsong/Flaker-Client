@@ -1,0 +1,289 @@
+@media only screen and (max-width: 1000px){
+    .dp-container{
+        display: grid;
+        height: 100vh;
+        width: 100%;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+    }
+    
+    .dp-artist-container{
+        height: 100%;
+        width: 100%;
+        background-image: url('../assets/papaioannou-kostas-tysecUm5HJA-unsplash.jpg');
+        background-size: cover;
+        background-position-x: center;
+        background-position-y: 70%;
+        display: grid;
+        place-items: center;
+    }
+    
+    .dp-artist-dropdown{
+        height: 100%;
+        width: 100%;
+        background-color: rgba(59, 56, 56, 0.51);
+        z-index: 1;
+    }
+    
+    .dp-artist-info{
+        display: grid;
+        position: absolute;
+        color: white;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 25%;
+        width: 100%;
+        cursor: pointer;
+    }
+    
+    .dp-genre-container{
+        grid-row-start: 2;
+        height: 100%;
+        width: 100%;
+        background-image: url('../assets/friends.jpg');
+        background-size: cover;
+        background-position-x: center;
+        background-position-y: center;
+        display: grid;
+        place-items: center;
+    }
+    
+    .dp-genre-dropdown{
+        height: 100%;
+        width: 100%;
+        background-color: rgba(34, 46, 59, 0.7);
+        z-index: 1;
+    }
+    
+    .dp-genre-info{
+        position: absolute;
+        color: white;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 25%;
+        width: 100%;
+        cursor: pointer;
+    }
+    
+    .dp-song-container{
+        grid-row-start: 3;
+        height: 100%;
+        width: 100%;
+        background-image: url('../assets/calendar.jpg');
+        background-size: cover;
+        background-position-x: 45%;
+        background-position-y: center;
+        display: grid;
+        place-items: center;
+    }
+    
+    .dp-song-dropdown{
+        height: 100%;
+        width: 100%;
+        background-color: rgba(64, 61, 67, 0.7);
+        z-index: 1;
+    }
+    
+    .dp-song-info{
+        position: absolute;
+        color: white;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 25%;
+        width: 100%;
+        cursor: pointer;
+    }
+    
+    .dp-country-container{
+        grid-row-start: 4;
+        height: 100%;
+        width: 100%;
+        background-image: url('../assets/event.jpg');
+        background-size: cover;
+        background-position-x: center;
+        background-position-y: 70% ;
+        display: grid;
+        place-items: center;
+    }
+    
+    .dp-country-dropdown{
+        height: 100%;
+        width: 100%;
+        background-color: rgba(46, 34, 59, 0.7);
+        z-index: 1;
+    }
+    
+    .dp-country-info{
+        position: absolute;
+        color: white;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 25%;
+        width: 100%;
+        cursor: pointer;
+    }
+    
+    .dp-icons{
+        height: 3rem;
+        width: 3rem;
+    }
+    
+    .dp-title{
+        font-size: 2.5rem;
+    }
+}
+
+@media only screen and (min-width: 1001px){
+    .dp-container{
+        display: grid;
+        height: 100vh;
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    
+    .dp-artist-container{
+        height: 100%;
+        width: 100%;
+        background-image: url('../assets/papaioannou-kostas-tysecUm5HJA-unsplash.jpg');
+        background-size: cover;
+        background-position-x: center;
+        display: grid;
+        place-items: center;
+    }
+    
+    .dp-artist-dropdown{
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(59, 56, 56, 0.51);
+        z-index: 1;
+    }
+    
+    .dp-artist-info{
+        display: grid;
+        position: absolute;
+        color: white;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 25%;
+        cursor: pointer;
+    }
+    
+    .dp-genre-container{
+        grid-column-start: 2;
+        height: 100%;
+        width: 100%;
+        background-image: url('../assets/friends.jpg');
+        background-size: cover;
+        background-position-x: center;
+        display: grid;
+        place-items: center;
+    }
+    
+    .dp-genre-dropdown{
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(34, 46, 59, 0.7);
+        z-index: 1;
+    }
+    
+    .dp-genre-info{
+        position: absolute;
+        color: white;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 25%;
+        cursor: pointer;
+    }
+    
+    .dp-song-container{
+        grid-column-start: 3;
+        height: 100%;
+        width: 100%;
+        background-image: url('../assets/calendar.jpg');
+        background-size: cover;
+        background-position-x: 45%;
+        display: grid;
+        place-items: center;
+    }
+    
+    .dp-song-dropdown{
+        height: 100%;
+        width: 100%;
+        background-color: rgba(64, 61, 67, 0.7);
+        z-index: 1;
+    }
+    
+    .dp-song-info{
+        position: absolute;
+        color: white;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 25%;
+        cursor: pointer;
+    }
+    
+    .dp-country-container{
+        grid-column-start: 4;
+        height: 100%;
+        width: 100%;
+        background-image: url('../assets/event.jpg');
+        background-size: cover;
+        background-position-x: center;
+        display: grid;
+        place-items: center;
+    }
+    
+    .dp-country-dropdown{
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(46, 34, 59, 0.7);
+        z-index: 1;
+    }
+    
+    .dp-country-info{
+        position: absolute;
+        color: white;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 25%;
+        cursor: pointer;
+    }
+    
+    .dp-icons{
+        height: 3rem;
+        width: 3rem;
+    }
+    
+    .dp-title{
+        font-size: 2.5rem;
+    }
+}
+

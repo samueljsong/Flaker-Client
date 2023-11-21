@@ -1,0 +1,167 @@
+@media only screen and (max-width: 900px){
+    .navbar-spacing{
+        width: 1rem;
+    }
+    
+    .navbar-container{
+        position: absolute;
+        z-index: 5;
+        height: 4rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+    }
+    
+    .navbar-logo{
+        height: 2rem;
+        width: 2rem;
+        cursor: pointer;
+    }
+    
+    .navbar-icon{
+        height:1.5rem;
+        width: 1.5rem;
+    }
+    
+    .navbar-icon-admin{
+        height:2rem;
+        width: 2rem;
+    }
+    
+    .navbar-title{
+        display: none;
+    }
+    
+    .navbar-none{
+        display: none;
+    }
+
+    .navbar-left{
+        display: flex;
+        height: 70%;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .navbar-right{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        height: 70%;
+    }
+    
+    .navbar-profile{
+        height: 3rem;
+        width: 3rem;
+        border-radius: 50%;
+        background-color: white;
+    }
+
+    .navbar-redirect{
+        display: none;
+    }
+    
+    .navbar-link{
+        display: flex;
+        height: 100%;
+        gap: 0.25rem;
+        text-decoration: none;
+        align-items: center;
+        color: white;
+        border-bottom: solid 1px transparent;
+        cursor: pointer;
+    }
+    
+    .navbar-link:hover{
+        animation: navHover 0.5s forwards;
+    }
+    
+    .navbar-logout{
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (min-width: 901px){
+    .navbar-spacing{
+        width: 1rem;
+    }
+    
+    .navbar-container{
+        position: absolute;
+        z-index: 5;
+        height: 4rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+    }
+    
+    .navbar-logo{
+        height: 2rem;
+        width: 2rem;
+        cursor: pointer;
+    }
+    
+    .navbar-icon{
+        height:1.5rem;
+        width: 1.5rem;
+    }
+    
+    .navbar-icon-admin{
+        height:2rem;
+        width: 2rem;
+    }
+    
+    .navbar-title{
+        letter-spacing: 0.25rem;
+    }
+    
+    .navbar-left{
+        display: flex;
+        height: 70%;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .navbar-right{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        height: 70%;
+    }
+    
+    .navbar-profile{
+        height: 3rem;
+        width: 3rem;
+        border-radius: 50%;
+        background-color: white;
+    }
+    
+    .navbar-link{
+        display: flex;
+        height: 100%;
+        gap: 0.25rem;
+        text-decoration: none;
+        align-items: center;
+        color: white;
+        border-bottom: solid 1px transparent;
+        cursor: pointer;
+    }
+    
+    .navbar-link:hover{
+        animation: navHover 0.5s forwards;
+    }
+    
+    .navbar-logout{
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        cursor: pointer;
+    }
+}

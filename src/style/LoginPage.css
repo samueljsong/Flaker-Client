@@ -1,0 +1,172 @@
+@media only screen and (max-width: 560px){
+    .login-smallfont{
+        font-size: 0.8rem;
+    }
+
+    .login-dropdown{
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(46, 34, 59, 0.7);
+        z-index: 1;
+    }
+    
+    .login-spacing{
+        height: 1rem;
+    }
+    
+    .login-container{
+        height: 100%;
+        width: 100%;
+        display: grid;
+        place-items: center;
+        background-image: url("../assets/drinks.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .login-form{
+        z-index: 2;
+        height: 40rem;
+        width: 80%;
+        border-radius: 10px;
+        color: white;
+        background: #1c1c1cdd;
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .login-line{
+        width: 70%;
+        height: 1px;
+        background-color: white;
+    }
+    
+    .login-input{
+        height: 3rem;
+        width: 100%;
+        background: none;
+        border: solid 1px rgb(121, 120, 120);
+        border-radius: 5px;
+        color: white;
+    }
+    
+    .login-input-container{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        gap: 0.25rem;
+    }
+    
+    .login-button{
+        height: 3rem;
+        width: 71%;
+        border: none;
+        background-color: #1bca49;
+        color: white;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+    
+    .login-button:hover{
+        animation: buttonHover 0.25s forwards;
+    }
+    
+    .login-to-signup{
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .login-link{
+        color: white;
+    }
+}
+
+@media only screen and (min-width: 561px){
+    .login-dropdown{
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(46, 34, 59, 0.7);
+        z-index: 1;
+    }
+    
+    .login-spacing{
+        height: 1rem;
+    }
+    
+    .login-container{
+        height: 100%;
+        width: 100%;
+        display: grid;
+        place-items: center;
+        background-image: url("../assets/drinks.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .login-form{
+        z-index: 2;
+        height: 40rem;
+        width: 30rem;
+        border-radius: 10px;
+        color: white;
+        background: #1c1c1cdd;
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .login-line{
+        width: 70%;
+        height: 1px;
+        background-color: white;
+    }
+    
+    .login-input{
+        height: 3rem;
+        width: 100%;
+        background: none;
+        border: solid 1px rgb(121, 120, 120);
+        border-radius: 5px;
+        color: white;
+    }
+    
+    .login-input-container{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        gap: 0.25rem;
+    }
+    
+    .login-button{
+        height: 3rem;
+        width: 71%;
+        border: none;
+        background-color: #1bca49;
+        color: white;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+    
+    .login-button:hover{
+        animation: buttonHover 0.25s forwards;
+    }
+    
+    .login-to-signup{
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .login-link{
+        color: white;
+    }
+}
+

@@ -1,0 +1,17 @@
+@keyframes buttonHover{
+    0%{
+        box-shadow: 0;
+    }
+    100%{
+        box-shadow: 0 0 10px #1bca49;
+    }
+}
+
+@keyframes navHover{
+    0%{
+        border-bottom: solid 1px transparent;
+    }
+    100%{
+        border-bottom: solid 1px white;
+    }
+}

@@ -1,0 +1,175 @@
+/* universal stuff */
+
+@media only screen and (max-width: 560px){
+    .signup-smallfont{
+        font-size: 0.8rem;
+    }
+
+    .signup-dropdown{
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(46, 34, 59, 0.7);
+        z-index: 1;
+    }
+    
+    .signup-spacing{
+        height: 1rem;
+    }
+    
+    .signup-container{
+        height: 100%;
+        width: 100%;
+        display: grid;
+        place-items: center;
+        background-image: url("../assets/treat.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .signup-form{
+        z-index: 2;
+        height: 40rem;
+        width: 80%;
+        border-radius: 10px;
+        color: white;
+        background: #1c1c1cdd;
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .signup-line{
+        width: 70%;
+        height: 1px;
+        background-color: white;
+    }
+    
+    .signup-input{
+        height: 3rem;
+        width: 100%;
+        background: none;
+        border: solid 1px rgb(121, 120, 120);
+        border-radius: 5px;
+        color: white;
+    }
+    
+    .signup-input-container{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        gap: 0.25rem;
+    }
+    
+    .signup-button{
+        height: 3rem;
+        width: 71%;
+        border: none;
+        background-color: #1bca49;
+        color: white;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+    
+    .signup-button:hover{
+        animation: buttonHover 0.25s forwards;
+    }
+    
+    .signup-to-login{
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .signup-link{
+        color: white;
+    }
+
+    
+}
+
+@media only screen and (min-width: 561px){
+    .signup-dropdown{
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(46, 34, 59, 0.7);
+        z-index: 1;
+    }
+    
+    .signup-spacing{
+        height: 1rem;
+    }
+    
+    .signup-container{
+        height: 100%;
+        width: 100%;
+        display: grid;
+        place-items: center;
+        background-image: url("../assets/treat.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .signup-form{
+        z-index: 2;
+        height: 40rem;
+        width: 30rem;
+        border-radius: 10px;
+        color: white;
+        background: #1c1c1cdd;
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .signup-line{
+        width: 70%;
+        height: 1px;
+        background-color: white;
+    }
+    
+    .signup-input{
+        height: 3rem;
+        width: 100%;
+        background: none;
+        border: solid 1px rgb(121, 120, 120);
+        border-radius: 5px;
+        color: white;
+    }
+    
+    .signup-input-container{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        gap: 0.25rem;
+    }
+    
+    .signup-button{
+        height: 3rem;
+        width: 71%;
+        border: none;
+        background-color: #1bca49;
+        color: white;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+    
+    .signup-button:hover{
+        animation: buttonHover 0.25s forwards;
+    }
+    
+    .signup-to-login{
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .signup-link{
+        color: white;
+    }
+}
