@@ -17,6 +17,7 @@ import { SignupPage } from './pages/SignupPage';
 import { StartPage } from './pages/StartPage';
 import { FriendsPage } from './pages/FriendsPage';
 import { GroupPage } from './pages/GroupPage';
+import { CalendarPage } from './pages/CalendarPage';
 
 function App() {
   const api = "http://localhost:3000/"
@@ -59,12 +60,13 @@ function App() {
       <ApiContext.Provider value={api}>
         <Navbar auth={auth}></Navbar>
         <Routes>
-          <Route path='/' element={<LandingPage auth={auth} />}></Route>
-          <Route path='/start' element={<StartPage auth={auth} />}></Route>
+          <Route path='/' element={<LandingPage auth={auth}/>}></Route>
+          <Route path='/start' element={<StartPage auth={auth}/>}></Route>
           <Route path='/login' element={<LoginPage auth={auth} authenticate={authenticate} />}></Route>
-          <Route path='/signup' element={<SignupPage auth={auth} />}></Route>
-          <Route path='/findfriends' element={<FriendsPage auth={auth} />}></Route>
-          <Route path='/createGroup' element={<GroupPage auth={auth} />}></Route>
+          <Route path='/signup' element={<SignupPage auth={auth}/>}></Route>
+          <Route path='/findfriends' element={<FriendsPage auth={auth}/>}></Route>
+          <Route path='/createGroup' element={<GroupPage auth={auth}/>}></Route>
+          <Route path='/calendar' element={<CalendarPage auth={auth}/>}></Route>
         </Routes>
       </ApiContext.Provider>
     </CookieContext.Provider>

@@ -28,7 +28,11 @@ export const StartPage = (props) => {
     }
 
     const onGroupClickHandler = () => {
-        navigate('/createGroup')
+        navigate('/createGroup');
+    }
+
+    const onCalendarClickHandler = () => {
+        navigate('/calendar');
     }
 
     return(
@@ -76,6 +80,7 @@ export const StartPage = (props) => {
                 <div className='dp-song-container'>
                     <div className='dp-song-dropdown'></div>
                     <motion.div className='dp-song-info'
+                        onClick={onCalendarClickHandler}
                         initial={{opacity: 0}} 
                         animate={{opacity: 1}} 
                         transition={{duration: "0.5", delay: 0}}
