@@ -14,12 +14,14 @@ import arrow from '../assets/arrow.png'
 
 import { useContext, useState } from 'react'
 import { ApiContext } from '../context/ApiContext'
+import { CookieContext } from '../context/CookieContext';
 
 export const FriendsPage = (props) => {
 
     const navigate = useNavigate();
 
     const api = useContext(ApiContext);
+    const cookies = useContext(CookieContext);
 
     const [search, setSearch] = useState("")
     const [allUsers, setAllUsers] = useState([])
@@ -46,7 +48,8 @@ export const FriendsPage = (props) => {
                 "Content-Type" : "application/json"
             },
             body: JSON.stringify({
-                search: e.target.value
+                search: e.target.value,
+                session: cookies.get('session')
             })
         })
             .then(res => res.json())

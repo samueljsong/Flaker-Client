@@ -53,7 +53,7 @@ export const LoginPage = (props) => {
                 if(json.success){
                     console.log("SUCCESS: User logged in");
                     cookies.set('session', json.session, {path: '/', maxAge: 3600000});
-                    props.authenticate();
+                    navigate('/start');
                 }
                 if(!json.success){
                     alert(json.message);
