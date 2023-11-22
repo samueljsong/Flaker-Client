@@ -26,39 +26,39 @@ function App() {
   const [auth, setAuth] = useState(0);
   const [admin, setAdmin] = useState(false)
 
-  // const authenticate = async () => {
-  //   console.log("authenticating")
-  //   fetch(api + 'authenticate', {
-  //       method: "POST",
-  //       mode: "cors",
-  //       headers:{
-  //           'Content-Type' : 'application/json'
-  //       },
-  //       body: {
-  //         session: 'placeholder'
-  //       }
-  //   })
-  //       .then(res => res.json())
-  //       .then(json => {
-  //           if(json.success){
-  //             setAuth(true);
-  //             console.log("SUCCESS: User authenticated" );
-  //           }
-  //           if(!json.success){
-  //             setAuth(false);
-  //             console.log("ERROR: User not authenticated");
-  //           }
-  //           if(json.admin){
-  //             setAdmin(true);
-  //           } else {
-  //             setAdmin(false);
-  //           }
-  //       })
-  // }
+  const authenticate = async () => {
+    console.log("authenticating")
+    fetch(api + 'authenticate', {
+        method: "POST",
+        mode: "cors",
+        headers:{
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify({
+          session: cookies.get('session')
+        })
+    })
+        .then(res => res.json())
+        .then(json => {
+            if(json.success){
+                setAuth(true);
+                console.log("SUCCESS: User authenticated" );
+            }
+            if(!json.success){
+                setAuth(false);
+                console.log("ERROR: User not authenticated");
+            }
+            if(json.admin){
+                setAdmin(true);
+            } else {
+                setAdmin(false);
+            }
+        })
+  }
 
-  // useEffect(() => {
-  //   authenticate();
-  // }, [location])
+  useEffect(() => {
+    authenticate();
+  }, [location])
 
   return (
     <>

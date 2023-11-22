@@ -15,9 +15,37 @@ import { useContext } from 'react'
 
 //Context
 import { ApiContext } from '../context/ApiContext';
+import { CookieContext } from "../context/CookieContext"
 
-export const Navbar = () => {
+export const Navbar = (props) => {
     const navigate = useNavigate();
+    const api = useContext(ApiContext);
+    const cookies = useContext(CookieContext);
+
+    const logout = async () => {
+        console.log("logging out")
+        fetch(api + 'logout', {
+            method: "POST",
+            mode: "cors",
+            headers:{
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify({
+              session: cookies.get('session')
+            })
+        })
+            .then(res => res.json())
+            .then(json => {
+                if(json.success){
+                    cookies.remove('session');
+                    console.log("SUCCESS: User logged out" );
+                    navigate('/')
+                }
+                if(!json.success){
+                    console.log("ERROR: User failed to log out");
+                }
+            })
+      }
 
     return(
     
@@ -28,22 +56,29 @@ export const Navbar = () => {
                     <img className="navbar-logo" src={logo} alt="" />
                     <span><h2 className="navbar-title">FLAKER</h2></span>
                 </Link>
-                <Link to={'/start'} className="navbar-link">
-                    <img className="navbar-icon" src={start} alt="" /><p className="navbar-none">Start</p>
-                </Link><Link to={'/calendar'} className="navbar-link">
-                    <img className="navbar-icon" src={calendar} alt="" /><p className="navbar-none">Calendars</p>
-                </Link>
+                {
+                    props.auth ? <>
+                            <Link to={'/start'} className="navbar-link">
+                                <img className="navbar-icon" src={start} alt="" /><p className="navbar-none">Start</p>
+                            </Link><Link to={'/calendar'} className="navbar-link">
+                                <img className="navbar-icon" src={calendar} alt="" /><p className="navbar-none">Calendars</p>
+                            </Link></> : <></>
+                }
+                
                 
             </div>
 
             <div className="navbar-right">
-                
-                    <div className="navbar-link" onClick={() => logout()}>
-                    <img className="navbar-icon" src={logoutimg} alt="" />
-                    <p className="navbar-none">Logout</p>
-                    </div>
-                    <div className="navbar-profile">
-                    </div>
+                    {
+                        props.auth ? <>
+                                <div className="navbar-link" onClick={() => logout()}>
+                                    <img className="navbar-icon" src={logoutimg} alt="" />
+                                    <p className="navbar-none">Logout</p>
+                                </div>
+                                <div className="navbar-profile">
+                                </div></> : <></>
+                    }
+                    
                 <span className="navbar-spacing"></span>
             </div>
         </motion.div>
