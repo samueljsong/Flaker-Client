@@ -57,7 +57,7 @@ function App() {
     <>
     <CookieContext.Provider value={cookies}>
       <ApiContext.Provider value={api}>
-        <Navbar admin={admin} auth={auth}></Navbar>
+        <Navbar auth={auth}></Navbar>
         <Routes>
           <Route path='/' element={<LandingPage auth={auth}/>}></Route>
           <Route path='/start' element={<StartPage auth={auth} />}></Route>
