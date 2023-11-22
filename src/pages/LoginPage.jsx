@@ -31,7 +31,6 @@ export const LoginPage = () => {
 
     const login = async (e) => {
         e.preventDefault();
-        console.log("logging in")
         fetch(api + 'login', {
             method: "POST",
             mode: "cors",
@@ -47,11 +46,10 @@ export const LoginPage = () => {
             .then(json => {
                 if(json.success){
                     console.log("SUCCESS: User logged in");
-                    // cookies.set('token', json.token, {path: '/', expires: new Date(Date.now()+3600)});
-                    navigateTo('/home');
+                    navigateTo('/start');
                 }
                 if(!json.success){
-                    console.log("ERROR: User not logged in");
+                    alert(json.message);
                 }
             })
     }

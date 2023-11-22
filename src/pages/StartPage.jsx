@@ -16,6 +16,10 @@ export const StartPage = () => {
     
     const navigate = useNavigate();
 
+    const onFriendsClickHandler = () => {
+        navigate('/findfriends');
+    }
+
     return(
         <>
             <div className='dp-container'>
@@ -23,6 +27,7 @@ export const StartPage = () => {
                 <motion.div className='dp-artist-container'>
                     <div className='dp-artist-dropdown'></div>
                     <motion.div className='dp-artist-info'
+                        onClick={onFriendsClickHandler}
                         initial={{opacity: 0}} 
                         animate={{opacity: 1}} 
                         transition={{duration: "0.5", delay: 0}}

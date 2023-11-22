@@ -1,0 +1,17 @@
+.gp-container{
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    background-image: url('../assets/friends.jpg');
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+.gp-backdrop{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(34, 46, 59, 0.56);
+    z-index: 1;
+}

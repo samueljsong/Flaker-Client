@@ -1,0 +1,54 @@
+
+.usercard-container{
+    display: grid;
+    grid-template-columns: 20% 45% 35% ;
+    align-items: center;
+    height: 6rem;
+    width: 100%;
+    background-color: rgb(50, 49, 49);
+    border-radius: 50px;
+    justify-items: center;
+}
+
+.usercard-profilepic{
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.usercard-username{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.usercard-button-container{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    z-index: 3;
+}
+
+.usercard-button{
+    background: none;
+    border: solid 1px #3b5d6f;
+    color: white;
+    width: 70%;
+    height: 50%;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+}
+
+.usercard-icon{
+    height: 1rem;
+    width: 1rem;
+}
+

@@ -34,28 +34,24 @@ export const SignupPage = () => {
     const signUp = async (e) => {
         e.preventDefault();
         console.log("signing up")
-        fetch(api + 'signup', {
-            method: "POST",
-            mode: "cors",
-            headers:{
-                'Content-Type' : 'application/json'
-            },
-            body: JSON.stringify({
+        fetch(api + 'signup',{
+            mode:"cors",
+            method:"POST",
+            headers: {"Content-Type" : "application/json"},
+            body:JSON.stringify({
+                email:email,
                 username: username,
-                email: email,
                 password: password
             })
         })
             .then(res => res.json())
             .then(json => {
                 if(json.success){
-                    console.log("SUCCESS: User created")
-                    navigateTo('/login');
+                    navigateTo('/login')
+                }else{
+                    alert("There was an error in creating an account")
                 }
-                if(!json.success){
-                    console.log("ERROR: User not created")
-                }
-            })
+            });
     }
 
     return(
@@ -79,7 +75,7 @@ export const SignupPage = () => {
                         animate={{opacity: 1, y: 0, x:0}} 
                         transition={{duration: "0.5", delay: 0.4}}>
                         <label htmlFor="signup-username">Username</label>
-                        <input className='signup-input' name='signup-username' id='signup-username' type="text" onChange={onUsernameChange}  required/>
+                        <input className='signup-input' name='signup-username' id='signup-username' type="text" onChange={onUsernameChange} max={15}  required/>
                     </motion.div>
                     <motion.div className='signup-input-container'
                         initial={{opacity: 0, y:20, x:3}} 
