@@ -32,24 +32,24 @@ function App() {
         headers:{
             'Content-Type' : 'application/json'
         },
-        body: {
-          session: 'placeholder'
-        }
+        body: JSON.stringify({
+          session: cookies.get('session')
+        })
     })
         .then(res => res.json())
         .then(json => {
             if(json.success){
-              setAuth(true);
-              console.log("SUCCESS: User authenticated" );
+                setAuth(true);
+                console.log("SUCCESS: User authenticated" );
             }
             if(!json.success){
-              setAuth(false);
-              console.log("ERROR: User not authenticated");
+                setAuth(false);
+                console.log("ERROR: User not authenticated");
             }
             if(json.admin){
-              setAdmin(true);
+                setAdmin(true);
             } else {
-              setAdmin(false);
+                setAdmin(false);
             }
         })
   }

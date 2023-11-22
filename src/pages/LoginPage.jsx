@@ -47,8 +47,8 @@ export const LoginPage = () => {
             .then(json => {
                 if(json.success){
                     console.log("SUCCESS: User logged in");
-                    // cookies.set('token', json.token, {path: '/', expires: new Date(Date.now()+3600)});
-                    navigateTo('/home');
+                    cookies.set('session', json.session, {path: '/', maxAge: 3600000});
+                    navigateTo('/');
                 }
                 if(!json.success){
                     console.log("ERROR: User not logged in");
