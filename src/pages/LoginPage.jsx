@@ -47,7 +47,7 @@ export const LoginPage = () => {
                 if(json.success){
                     console.log("SUCCESS: User logged in");
                     cookies.set('session', json.session, {path: '/', maxAge: 3600000});
-                    navigateTo('/');
+                    navigateTo('/start');
                 }
                 if(!json.success){
                     alert(json.message);
