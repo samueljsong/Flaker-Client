@@ -20,6 +20,10 @@ export const StartPage = () => {
         navigate('/findfriends');
     }
 
+    const onGroupClickHandler = () => {
+        navigate('/createGroup')
+    }
+
     return(
         <>
             <div className='dp-container'>
@@ -39,13 +43,14 @@ export const StartPage = () => {
                             }
                         }>
                         <img className='dp-icons' src={artist} alt="" />
-                        <h1 className='dp-title'>Friends</h1>
+                        <h1 className='dp-title'>1. Friends</h1>
                         <p>Add your friends to start</p>
                     </motion.div>
                 </motion.div>
                 <div className='dp-genre-container'>
                     <div className='dp-genre-dropdown'></div>
                     <motion.div className='dp-genre-info'
+                        onClick={onGroupClickHandler}
                         initial={{opacity: 0}} 
                         animate={{opacity: 1}} 
                         transition={{duration: "0.5", delay: 0}}
@@ -57,7 +62,7 @@ export const StartPage = () => {
                             }
                         }>
                         <img className='dp-icons' src={group} alt="" />
-                        <h1 className='dp-title'>Group</h1>
+                        <h1 className='dp-title'>2. Group</h1>
                         <p>Create a new friend group</p>
                     </motion.div>
                 </div>
@@ -75,7 +80,7 @@ export const StartPage = () => {
                             }
                         }>
                         <img className='dp-icons' src={calendar} alt="" />
-                        <h1 className='dp-title'>Calendar</h1>
+                        <h1 className='dp-title'>3. Calendar</h1>
                         <p>Open your groups calendar</p>
                     </motion.div>
                 </div>
@@ -93,7 +98,7 @@ export const StartPage = () => {
                             }
                         }>
                         <img className='dp-icons' src={clock} alt="" />
-                        <h1 className='dp-title'>Plan</h1>
+                        <h1 className='dp-title'>4. Plan</h1>
                         <p>Create events for everyone</p>
                     </motion.div>
                 </div>

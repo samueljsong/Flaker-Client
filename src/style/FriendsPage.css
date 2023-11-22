@@ -98,20 +98,26 @@
     z-index: 3;
     color: white;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
 }
 
-.fp-link{
-    width: 100%;
+.fp-button{
     height: 100%;
+    width: 100%;
     display: flex;
-    z-index: 3;
-    color: white;
+    justify-content: center;
     align-items: center;
     gap: 0.5rem;
+    z-index: 5;
+    cursor: pointer;
+    border: solid 1px #3b5d6f;
+    border-radius: 50px;
+    background-color: #3b5d6f;
 }
 
 .fp-arrow{
-    height: 2rem;
-    width: 2rem;
+    height: 1.5rem;
+    width: 1.5rem;
 }
+
+

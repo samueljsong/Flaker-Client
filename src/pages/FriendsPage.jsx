@@ -3,7 +3,7 @@ import '../style/FriendsPage.css'
 
 //dependencies
 import { motion } from "framer-motion"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 //components
 import { UserCard } from '../components/UserCard'
@@ -16,10 +16,16 @@ import { ApiContext } from '../context/ApiContext'
 
 export const FriendsPage = () => {
 
+    const navigate = useNavigate();
+
     const api = useContext(ApiContext);
 
     const [search, setSearch] = useState("")
     const [allUsers, setAllUsers] = useState([])
+
+    const onButtonClickHandler = () => {
+        navigate('/createGroup')
+    }
 
     const onSearchChangeHandler = (e) => {
         if(e.target.value === ''){
@@ -71,7 +77,7 @@ export const FriendsPage = () => {
                         return <motion.div key={user.user_id}
                         initial={{opacity: 0, y:10}} 
                         animate={{opacity: 1, y: 0}} 
-                        transition={{duration: "0.2"}}>
+                        transition={{duration: "0.3"}}>
                                 <UserCard username={user.username}/>
                             </motion.div>
                     })
@@ -81,10 +87,17 @@ export const FriendsPage = () => {
             initial={{opacity: 0, y:20}} 
             animate={{opacity: 1, y: 0}} 
             transition={{duration: "0.5", delay: 0.85}}>
-                <Link to={'/createGroup'} className='fp-link'>
-                    <p>Let's make a group now</p>
-                    <img src={arrow} alt="" className='fp-arrow'/>
-                </Link>
+                <motion.div className='fp-button'
+                whileHover={{
+                    y: -5
+                }}
+                whileTap={{
+                    scale:0.97
+                }}
+                onClick={onButtonClickHandler}>
+                    <p className='fp-button-text'>Lets create a friend group</p>
+                    <img src={arrow} className='fp-arrow' alt="" />
+                </motion.div>
             </motion.div>
         </div>
     )

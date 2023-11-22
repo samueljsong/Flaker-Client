@@ -1,6 +1,7 @@
 import '../style/UserCard.css'
 
 import plus from '../assets/plus.png'
+import { motion } from "framer-motion"
 
 export const UserCard = (props) => {
 
@@ -11,10 +12,16 @@ export const UserCard = (props) => {
                 @{props.username}
             </div>
             <div className='usercard-button-container'>
-                <div className='usercard-button'>
+                <motion.div className='usercard-button'
+                whileHover={{
+                    backgroundColor: "#3b5d6f"
+                }}
+                whileTap={{
+                    scale:0.95
+                }}>
                     <img src={plus} className='usercard-icon' alt="" />
                     add
-                </div>
+                </motion.div>
             </div>
         </div>
     )
