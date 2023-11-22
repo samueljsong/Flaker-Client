@@ -6,6 +6,9 @@ import { motion } from 'framer-motion'
 //Context
 import { ApiContext } from '../context/ApiContext'
 
+//dependencies
+import { useEffect } from 'react';
+
 //styles
 import '../style/SIgnupPage.css'
 

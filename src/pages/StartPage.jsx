@@ -11,6 +11,7 @@ import group from '../assets/group.png'
 //dependencies
 import { motion } from "framer-motion"
 import { useNavigate } from 'react-router'
+import { useEffect } from 'react';
 
 export const StartPage = (props) => {
     
@@ -21,7 +22,7 @@ export const StartPage = (props) => {
             navigate('/');
         }
     }, [])
-    
+
     const onFriendsClickHandler = () => {
         navigate('/findfriends');
     }

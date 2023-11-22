@@ -4,6 +4,7 @@ import '../style/GroupPage.css'
 //dependencies
 import { motion } from "framer-motion"
 import { Link, useNavigate } from 'react-router-dom'
+import { useEffect } from 'react';
 
 //components
 import { UserCard } from '../components/UserCard'
