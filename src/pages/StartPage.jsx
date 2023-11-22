@@ -21,7 +21,7 @@ export const StartPage = (props) => {
         if (!props.auth) {
             navigate('/');
         }
-    }, [])
+    }, [props.auth])
 
     const onFriendsClickHandler = () => {
         navigate('/findfriends');

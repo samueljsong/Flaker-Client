@@ -28,7 +28,7 @@ export const GroupPage = (props) => {
         if (!props.auth) {
             navigate('/');
         }
-    }, [])
+    }, [props.auth])
 
     const onSearchChangeHandler = (e) => {
         

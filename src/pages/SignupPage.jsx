@@ -25,7 +25,7 @@ export const SignupPage = (props) => {
         if (props.auth) {
             navigate('/start');
         }
-    }, [])
+    }, [props.auth])
     
     const onUsernameChange = (e) => {
         setUsername(e.target.value);

@@ -13,7 +13,7 @@ export const LandingPage = (props) => {
         if (props.auth) {
             navigate('/start');
         }
-    }, [])
+    }, [props.auth])
 
     return (
         <>

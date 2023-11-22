@@ -25,7 +25,7 @@ export const LoginPage = (props) => {
         if (props.auth) {
             navigate('/start');
         }
-    }, [])
+    }, [props.auth])
 
     const onUsernameChange = (e) => {
         setUsername(e.target.value);
@@ -53,7 +53,7 @@ export const LoginPage = (props) => {
                 if(json.success){
                     console.log("SUCCESS: User logged in");
                     cookies.set('session', json.session, {path: '/', maxAge: 3600000});
-                    navigate('/start');
+                    props.authenticate();
                 }
                 if(!json.success){
                     alert(json.message);

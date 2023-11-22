@@ -59,9 +59,9 @@ function App() {
       <ApiContext.Provider value={api}>
         <Navbar auth={auth}></Navbar>
         <Routes>
-          <Route path='/' element={<LandingPage auth={auth}/>}></Route>
+          <Route path='/' element={<LandingPage auth={auth} />}></Route>
           <Route path='/start' element={<StartPage auth={auth} />}></Route>
-          <Route path='/login' element={<LoginPage auth={auth} />}></Route>
+          <Route path='/login' element={<LoginPage auth={auth} authenticate={authenticate} />}></Route>
           <Route path='/signup' element={<SignupPage auth={auth} />}></Route>
           <Route path='/findfriends' element={<FriendsPage auth={auth} />}></Route>
           <Route path='/createGroup' element={<GroupPage auth={auth} />}></Route>

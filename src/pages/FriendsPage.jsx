@@ -28,7 +28,7 @@ export const FriendsPage = (props) => {
         if (!props.auth) {
             navigate('/');
         }
-    }, [])
+    }, [props.auth])
 
     const onButtonClickHandler = () => {
         navigate('/createGroup')

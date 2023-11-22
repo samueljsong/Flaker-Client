@@ -12,7 +12,7 @@ export const CalendarPage = (props) => {
         if (!props.auth) {
             navigate('/');
         }
-    }, [])
+    }, [props.auth])
 
     return(
         <div></div>
