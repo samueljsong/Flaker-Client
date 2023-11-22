@@ -16,10 +16,12 @@ export const StartPage = (props) => {
     
     const navigate = useNavigate();
 
-    if (!props.auth) {
-        navigate('/');
-    }
-
+    useEffect(() => {
+        if (!props.auth) {
+            navigate('/');
+        }
+    }, [])
+    
     const onFriendsClickHandler = () => {
         navigate('/findfriends');
     }

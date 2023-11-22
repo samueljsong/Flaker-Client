@@ -7,9 +7,11 @@ import '../style/CalendarPage.css'
 export const CalendarPage = (props) => {
     const navigate = useNavigate();
 
-    if (!props.auth) {
-        navigate('/');
-    }
+    useEffect(() => {
+        if (!props.auth) {
+            navigate('/');
+        }
+    }, [])
 
     return(
         <div></div>

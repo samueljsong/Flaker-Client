@@ -23,9 +23,11 @@ export const GroupPage = (props) => {
     const [search, setSearch] = useState("")
     const [allFriends, setAllFriends] = useState([])
 
-    if (!props.auth) {
-        navigate('/');
-    }
+    useEffect(() => {
+        if (!props.auth) {
+            navigate('/');
+        }
+    }, [])
 
     const onSearchChangeHandler = (e) => {
         

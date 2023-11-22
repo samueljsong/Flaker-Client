@@ -18,9 +18,11 @@ export const SignupPage = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    if (props.auth) {
-        navigate('/');
-    }
+    useEffect(() => {
+        if (props.auth) {
+            navigate('/start');
+        }
+    }, [])
     
     const onUsernameChange = (e) => {
         setUsername(e.target.value);

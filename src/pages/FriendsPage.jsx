@@ -23,9 +23,11 @@ export const FriendsPage = (props) => {
     const [search, setSearch] = useState("")
     const [allUsers, setAllUsers] = useState([])
 
-    if (!props.auth) {
-        navigate('/');
-    }
+    useEffect(() => {
+        if (!props.auth) {
+            navigate('/');
+        }
+    }, [])
 
     const onButtonClickHandler = () => {
         navigate('/createGroup')
