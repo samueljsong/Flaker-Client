@@ -3,7 +3,7 @@ import '../style/GroupPage.css'
 
 //dependencies
 import { motion } from "framer-motion"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 //components
 import { UserCard } from '../components/UserCard'
@@ -14,12 +14,18 @@ import arrow from '../assets/arrow.png'
 import { useContext, useState } from 'react'
 import { ApiContext } from '../context/ApiContext'
 
-export const GroupPage = () => {
+export const GroupPage = (props) => {
+
+    const navigate = useNavigate();
 
     const api = useContext(ApiContext);
 
     const [search, setSearch] = useState("")
     const [allFriends, setAllFriends] = useState([])
+
+    if (!props.auth) {
+        navigate('/');
+    }
 
     const onSearchChangeHandler = (e) => {
         

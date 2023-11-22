@@ -12,14 +12,18 @@ import '../style/LoginPage.css'
 import '../style/Animations.css'
 
 
-export const LoginPage = () => {
-    const navigateTo = useNavigate();
+export const LoginPage = (props) => {
+    const navigate = useNavigate();
 
     const api = useContext(ApiContext)
     const cookies = useContext(CookieContext)
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    if (props.auth) {
+        navigate('/');
+    }
 
     const onUsernameChange = (e) => {
         setUsername(e.target.value);
@@ -47,7 +51,7 @@ export const LoginPage = () => {
                 if(json.success){
                     console.log("SUCCESS: User logged in");
                     cookies.set('session', json.session, {path: '/', maxAge: 3600000});
-                    navigateTo('/start');
+                    navigate('/start');
                 }
                 if(!json.success){
                     alert(json.message);

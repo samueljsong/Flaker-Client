@@ -12,9 +12,13 @@ import group from '../assets/group.png'
 import { motion } from "framer-motion"
 import { useNavigate } from 'react-router'
 
-export const StartPage = () => {
+export const StartPage = (props) => {
     
     const navigate = useNavigate();
+
+    if (!props.auth) {
+        navigate('/');
+    }
 
     const onFriendsClickHandler = () => {
         navigate('/findfriends');

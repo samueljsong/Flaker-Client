@@ -5,8 +5,7 @@ import Cookies from "universal-cookie";
 
 //Context
 import { ApiContext } from './context/ApiContext';
-import { CookieContext } from './context/CookieContext';
-import { AuthContext } from './context/AuthContext';
+import { CookieContext } from './context/CookieContext';;
 
 //components
 import { Navbar } from './components/Navbar';
@@ -23,8 +22,7 @@ function App() {
   const api = "http://localhost:3000/"
   const cookies = new Cookies();
   const location = useLocation()
-  const [auth, setAuth] = useState(0);
-  const [admin, setAdmin] = useState(false)
+  const [auth, setAuth] = useState(false);
 
   const authenticate = async () => {
     console.log("authenticating")
@@ -48,11 +46,6 @@ function App() {
                 setAuth(false);
                 console.log("ERROR: User not authenticated");
             }
-            if(json.admin){
-                setAdmin(true);
-            } else {
-                setAdmin(false);
-            }
         })
   }
 
@@ -66,12 +59,12 @@ function App() {
       <ApiContext.Provider value={api}>
         <Navbar admin={admin} auth={auth}></Navbar>
         <Routes>
-          <Route path='/' element={<LandingPage/>}></Route>
-          <Route path='/start' element={<StartPage/>}></Route>
-          <Route path='/login' element={<LoginPage/>}></Route>
-          <Route path='/signup' element={<SignupPage/>}></Route>
-          <Route path='/findfriends' element={<FriendsPage/>}></Route>
-          <Route path='/createGroup' element={<GroupPage/>}></Route>
+          <Route path='/' element={<LandingPage auth={auth}/>}></Route>
+          <Route path='/start' element={<StartPage auth={auth} />}></Route>
+          <Route path='/login' element={<LoginPage auth={auth} />}></Route>
+          <Route path='/signup' element={<SignupPage auth={auth} />}></Route>
+          <Route path='/findfriends' element={<FriendsPage auth={auth} />}></Route>
+          <Route path='/createGroup' element={<GroupPage auth={auth} />}></Route>
         </Routes>
       </ApiContext.Provider>
     </CookieContext.Provider>

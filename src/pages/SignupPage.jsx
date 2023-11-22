@@ -9,8 +9,8 @@ import { ApiContext } from '../context/ApiContext'
 //styles
 import '../style/SIgnupPage.css'
 
-export const SignupPage = () => {
-    const navigateTo = useNavigate();
+export const SignupPage = (props) => {
+    const navigate = useNavigate();
 
     const api = useContext(ApiContext)
 
@@ -18,6 +18,9 @@ export const SignupPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    if (props.auth) {
+        navigate('/');
+    }
     
     const onUsernameChange = (e) => {
         setUsername(e.target.value);
@@ -47,7 +50,7 @@ export const SignupPage = () => {
             .then(res => res.json())
             .then(json => {
                 if(json.success){
-                    navigateTo('/login')
+                    navigate('/login')
                 }else{
                     alert("There was an error in creating an account")
                 }

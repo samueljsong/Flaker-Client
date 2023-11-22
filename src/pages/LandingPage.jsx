@@ -3,9 +3,14 @@ import '../style/LandingPage.css'
 
 //dependencies
 import { motion } from "framer-motion"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
-export const LandingPage = () => {
+export const LandingPage = (props) => {
+    const navigate = useNavigate();
+
+    if (!props.auth) {
+        navigate('/start');
+    }
 
     return (
         <>

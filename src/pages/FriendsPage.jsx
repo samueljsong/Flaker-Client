@@ -14,7 +14,7 @@ import arrow from '../assets/arrow.png'
 import { useContext, useState } from 'react'
 import { ApiContext } from '../context/ApiContext'
 
-export const FriendsPage = () => {
+export const FriendsPage = (props) => {
 
     const navigate = useNavigate();
 
@@ -22,6 +22,10 @@ export const FriendsPage = () => {
 
     const [search, setSearch] = useState("")
     const [allUsers, setAllUsers] = useState([])
+
+    if (!props.auth) {
+        navigate('/');
+    }
 
     const onButtonClickHandler = () => {
         navigate('/createGroup')
