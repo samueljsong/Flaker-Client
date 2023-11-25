@@ -16,11 +16,20 @@ export const CreateGroupModal = (props) => {
     
     return(
         <div className='cgm-container'>
-            <div className='cgm-modal-container'>
+            <motion.div className='cgm-modal-container'
+            initial={{opacity: 0, y:20}} 
+            animate={{opacity: 1, y: 0}} 
+            transition={{duration: "0.5", delay: 0.25}}>
                 <div className='cgm-title'>
                     <h2>Create a Group</h2>
-                    <img src={close} className='cgm-close-icon' alt="" 
-                    onClick={props.closeModal}/>
+                    <motion.img src={close} className='cgm-close-icon' alt="" 
+                    onClick={props.closeModal}
+                    whileHover={{
+                        y:-5,
+                    }}
+                    whileTap={{
+                        scale:0.95
+                    }}/>
                 </div>
                 <div className='cgm-info'>
                     What would you like to name your group?
@@ -40,7 +49,7 @@ export const CreateGroupModal = (props) => {
                     Create Group
                 </motion.div>
 
-            </div>
+            </motion.div>
         </div>
     )
 }

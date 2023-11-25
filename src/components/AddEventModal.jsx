@@ -11,7 +11,7 @@ export const AddEventModal = (props) => {
         <motion.div className='aem-container'>
             <motion.div className='aem-modal'
             initial={{
-                y:40,
+                y:20,
                 opacity:0
             }}
             animate={{
@@ -57,7 +57,7 @@ export const AddEventModal = (props) => {
                     y: -5
                 }}
                 whileTap={{
-                    scale:0.9
+                    scale:0.95
                 }}>
                     <p>Create Event</p>
                 </motion.div>
