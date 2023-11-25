@@ -1,0 +1,76 @@
+.cgm-container{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.577);
+    display: grid;
+    place-items: center;
+    z-index: 3;
+}
+
+.cgm-modal-container{
+    display: flex;
+    flex-direction: column;
+    height: 16rem;
+    width: 20%;
+    min-width: 20rem;
+    background-color: rgba(0, 0, 0, 0.753);
+    z-index: 4;
+    border-radius: 10px;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.cgm-title{
+    width: 90%;
+    height: 3rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1px #74634c;
+    justify-content: space-between;
+}
+
+.cgm-close-icon{
+    height: 1.5rem;
+    width: 1.5rem;
+    cursor: pointer;
+}
+
+.cgm-info{
+    color: white;
+    width: 90%;
+}
+
+.cgm-input-container{
+    width: 90%;
+    height: 3rem;
+    display: grid;
+    place-items: center;
+    border: solid 1px #74634c;
+    border-radius: 10px;
+}
+
+.cgm-input{
+    height: 100%;
+    width: 90%;
+    background: none;
+    color: white;
+    border: none;
+}
+
+.cgm-input:focus{
+    outline: none;
+}
+
+.cgm-create{
+    height: 3rem;
+    width: 90%;
+    border: solid 1px #74634c;
+    border-radius: 10px;
+    color: white;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}

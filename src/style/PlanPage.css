@@ -1,0 +1,17 @@
+.pp-container{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background-image: url('../assets/event.jpg');
+    background-position-x: center;
+    background-size: cover;
+    background-position-y: bottom;
+}
+
+.pp-backdrop{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(46, 34, 59, 0.7);
+    z-index: 1;
+}

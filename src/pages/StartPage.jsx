@@ -35,6 +35,10 @@ export const StartPage = (props) => {
         navigate('/calendar');
     }
 
+    const onPlanClickHandler = () => {
+        navigate('/plans');
+    }
+
     return(
         <>
             <div className='dp-container'>
@@ -99,6 +103,7 @@ export const StartPage = (props) => {
                 <div className='dp-country-container'>
                     <div className='dp-country-dropdown'></div>
                     <motion.div className='dp-country-info'
+                        onClick={onPlanClickHandler}
                         initial={{opacity: 0}} 
                         animate={{opacity: 1}} 
                         transition={{duration: "0.5", delay: 0}}

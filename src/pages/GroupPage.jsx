@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 
 //components
 import { UserCard } from '../components/UserCard'
+import { CreateGroupModal } from '../components/CreateGroupModal';
 
 import searchIcon from '../assets/search.png'
 import arrow from '../assets/arrow.png'
@@ -23,6 +24,12 @@ export const GroupPage = (props) => {
 
     const [search, setSearch] = useState("")
     const [allFriends, setAllFriends] = useState([])
+
+    //Create group modal
+    const [createGroup, setCreateGroup] = useState(false);
+    const onCreateGroupClickHandler = () => {
+        setCreateGroup(!createGroup)
+    }
 
     useEffect(() => {
         if (!props.auth) {
@@ -70,6 +77,7 @@ export const GroupPage = (props) => {
                 }
             </motion.div>
             <motion.div className='gp-gonext'
+            onClick={onCreateGroupClickHandler}
             initial={{opacity: 0, y:20}} 
             animate={{opacity: 1, y: 0}} 
             transition={{duration: "0.5", delay: 0.85}}>
@@ -84,6 +92,10 @@ export const GroupPage = (props) => {
                     <p className='gp-button-text'>Create Group</p>
                 </motion.div>
             </motion.div>
+
+            {
+                createGroup ? <CreateGroupModal closeModal={onCreateGroupClickHandler}/> : <></>
+            }
 
         </div>
     )

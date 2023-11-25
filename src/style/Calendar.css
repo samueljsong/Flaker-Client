@@ -71,9 +71,24 @@
   background-color: #f0f0f0;
 }
 
+@keyframes hoverNavigation {
+    0%{
+        background-color: #2b2b2b00;
+    }
+    100%{
+        background-color: #2b2b2b78;
+    }
+}
+
+/* navigation hover effects */
 .react-calendar__navigation button:enabled:hover,
 .react-calendar__navigation button:enabled:focus {
-  background-color: #e6e6e6;
+
+}
+
+/* arrow */
+.react-calendar__navigation__arrow{
+    color: white;
 }
 
 .react-calendar__month-view__weekdays {
@@ -109,6 +124,7 @@
     color:white;
     aspect-ratio: 1/1;
     border-radius: 50%;
+    
   }
 
   /* day number for other month numbers */
@@ -126,7 +142,7 @@
     /* display: grid;
     place-items: center; */
   /* max-width: 100%; */
-  padding: 10px 6.6667px;
+  /* padding: 10px 6.6667px; */
   background: none;
   text-align: center;
   line-height: 16px;
@@ -143,15 +159,19 @@
   background-color: #e6e6e6;
 }
 
-.react-calendar__tile--now {
-  /* background: #ffff76; */
-  background-color: white;
-  color: black;
-}
+/* current day */
+.react-calendar__tile--now:enabled {
+    /* background: #ffff76; */
+    background: none;
+    border: solid 1px white;
+    color: white;
+  }
 
+  /* hover over the current day */
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
-  background: #ffffa9;
+  background: black;
+  border: solid 1px white;
 }
 
 .react-calendar__tile--hasActive {

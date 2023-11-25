@@ -22,6 +22,10 @@ export const Navbar = (props) => {
     const api = useContext(ApiContext);
     const cookies = useContext(CookieContext);
 
+    const onProfileClickHandler = () => {
+        navigate('/profile')
+    }
+
     const logout = async () => {
         console.log("logging out")
         fetch(api + 'logout', {
@@ -75,7 +79,8 @@ export const Navbar = (props) => {
                                     <img className="navbar-icon" src={logoutimg} alt="" />
                                     <p className="navbar-none">Logout</p>
                                 </div>
-                                <div className="navbar-profile">
+                                <div className="navbar-profile"
+                                onClick={onProfileClickHandler}>
                                 </div></> : <></>
                     }
                     
