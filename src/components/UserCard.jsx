@@ -2,12 +2,29 @@ import '../style/UserCard.css'
 
 import plus from '../assets/plus.png'
 import { motion } from "framer-motion"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
+
+//Context
+import { ApiContext } from '../context/ApiContext'
+import { CookieContext } from '../context/CookieContext';
 
 export const UserCard = (props) => {
+    const api = useContext(ApiContext);
+    const cookies = useContext(CookieContext);
 
     // statuses: 0 = no request, 1 = request sent, 2 = request retrieved, 3 = friends
     const [status, setStatus] = useState(0);
+    const [statusbtn, setStatusBtn] = useState(<motion.div className='usercard-button'
+    whileHover={{
+        backgroundColor: "#3b5d6f"
+    }}
+    whileTap={{
+        scale:0.95
+    }}
+    onClick={() => sendRequest()}>
+        <img src={plus} className='usercard-icon' alt="" />
+        add
+    </motion.div>)
 
     const getStatus = async () => {
         fetch(api + 'getStatus', {
@@ -18,13 +35,15 @@ export const UserCard = (props) => {
             },
             body: JSON.stringify({
               session: cookies.get('session'),
-              username: props.username
+              userid: props.userid
             })
         })
             .then(res => res.json())
             .then(json => {
                 if(json.success){
                     console.log("SUCCESS: retrieved friend status" );
+                    console.log(json.status);
+                    setStatus(json.status);
                 }
                 if(!json.success){
                     console.log("ERROR: failed to retrieve friend status");
@@ -33,26 +52,14 @@ export const UserCard = (props) => {
     }
 
     useEffect(() => {
-        buttonStatus();
-    }, [status])
+        getStatus();
+    }, [])
 
-    let statusbutton = (
-        <motion.div className='usercard-button'
-        whileHover={{
-            backgroundColor: "#3b5d6f"
-        }}
-        whileTap={{
-            scale:0.95
-        }}
-        onClick={() => sendRequest()}>
-            <img src={plus} className='usercard-icon' alt="" />
-            add
-        </motion.div>
-    );
-    const buttonStatus = () => {
+    useEffect(() => {
+        console.log("change button");
         switch (status) {
             case 0: // no request
-                statusbutton = (
+                setStatusBtn(
                     <motion.div className='usercard-button'
                     whileHover={{
                         backgroundColor: "#3b5d6f"
@@ -60,13 +67,15 @@ export const UserCard = (props) => {
                     whileTap={{
                         scale:0.95
                     }}
+                    style={{ color: 'green' }}
                     onClick={() => sendRequest()}>
                         <img src={plus} className='usercard-icon' alt="" />
                         add
                     </motion.div>
                 );
+                break;
             case 1: // request sent
-                statusbutton = (
+                setStatusBtn(
                     <motion.div className='usercard-button'
                     whileHover={{
                         backgroundColor: "#3b5d6f"
@@ -74,13 +83,15 @@ export const UserCard = (props) => {
                     whileTap={{
                         scale:0.95
                     }}
-                    onClick={() => sendRequest()}>
+                    style={{ color: 'red' }}
+                    onClick={() => removeRequest()}>
                         <img src={plus} className='usercard-icon' alt="" />
-                        remove
+                        cancel
                     </motion.div>
                 );
+                break;
             case 2: // request got
-                statusbutton = (
+                setStatusBtn(
                     <motion.div className='usercard-button'
                     whileHover={{
                         backgroundColor: "#3b5d6f"
@@ -88,13 +99,15 @@ export const UserCard = (props) => {
                     whileTap={{
                         scale:0.95
                     }}
-                    onClick={() => sendRequest()}>
+                    style={{ color: 'green' }}
+                    onClick={() => acceptRequest()}>
                         <img src={plus} className='usercard-icon' alt="" />
                         accept
                     </motion.div>
                 );
+                break;
             case 3: // friends
-                statusbutton = (
+                setStatusBtn(
                     <motion.div className='usercard-button'
                     whileHover={{
                         backgroundColor: "#3b5d6f"
@@ -102,15 +115,15 @@ export const UserCard = (props) => {
                     whileTap={{
                         scale:0.95
                     }}
+                    style={{ color: 'red' }}
                     onClick={() => sendRequest()}>
                         <img src={plus} className='usercard-icon' alt="" />
                         remove
                     </motion.div>
                 )
-                
-                
+                break;
         }
-    }
+    }, [status])
 
     const sendRequest = async () => {
         console.log("sending request")
@@ -122,17 +135,44 @@ export const UserCard = (props) => {
             },
             body: JSON.stringify({
               session: cookies.get('session'),
-              username: props.username
+              userid: props.userid
             })
         })
             .then(res => res.json())
             .then(json => {
                 if(json.success){
                     console.log("SUCCESS: request sent" );
+                    setStatus(1);
                 }
                 if(!json.success){
                     setAuth(false);
                     console.log("ERROR: request not sent");
+                }
+            })
+    }
+
+    const acceptRequest = async () => {
+        console.log("accepting request")
+        fetch(api + 'acceptRequest', {
+            method: "POST",
+            mode: "cors",
+            headers:{
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify({
+              session: cookies.get('session'),
+              userid: props.userid
+            })
+        })
+            .then(res => res.json())
+            .then(json => {
+                if(json.success){
+                    console.log("SUCCESS: request accepted" );
+                    setStatus(3);
+                }
+                if(!json.success){
+                    setAuth(false);
+                    console.log("ERROR: request not accepted");
                 }
             })
     }
@@ -169,7 +209,7 @@ export const UserCard = (props) => {
                 @{props.username}
             </div>
             <div className='usercard-button-container'>
-                {statusbutton}
+                {statusbtn}
             </div>
         </div>
     )
