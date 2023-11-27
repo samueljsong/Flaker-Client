@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 
 //components
 import { UserCard } from '../components/UserCard'
+import { FriendCard } from '../components/FriendCard';
 import { CreateGroupModal } from '../components/CreateGroupModal';
 
 import searchIcon from '../assets/search.png'
@@ -15,12 +16,13 @@ import arrow from '../assets/arrow.png'
 
 import { useContext, useState } from 'react'
 import { ApiContext } from '../context/ApiContext'
+import { CookieContext } from '../context/CookieContext';
 
 export const GroupPage = (props) => {
 
     const navigate = useNavigate();
-
     const api = useContext(ApiContext);
+    const cookies = useContext(CookieContext);
 
     const [search, setSearch] = useState("")
     const [allFriends, setAllFriends] = useState([])
@@ -30,6 +32,24 @@ export const GroupPage = (props) => {
     const onCreateGroupClickHandler = () => {
         setCreateGroup(!createGroup)
     }
+
+    useEffect(() => {
+        console.log(cookies.get('session'));
+        fetch(api + 'friends/getAll', {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type" : "application/json"
+            },
+            body: JSON.stringify({
+                session: cookies.get('session')
+            })
+        })
+            .then(res => res.json())
+            .then(json => {
+                setAllFriends(json.allFriends)
+            })
+    },[])
 
     useEffect(() => {
         if (!props.auth) {
@@ -71,7 +91,7 @@ export const GroupPage = (props) => {
                         initial={{opacity: 0, y:10}} 
                         animate={{opacity: 1, y: 0}} 
                         transition={{duration: "0.2"}}>
-                                <UserCard username={user.username}/>
+                                <FriendCard username={user.username} userid={user.user_id}/>
                             </motion.div>
                     })
                 }

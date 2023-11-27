@@ -1,6 +1,11 @@
 import '../style/UserCard.css'
 
+//icons
 import plus from '../assets/plus.png'
+import close from '../assets/close.png'
+import send from '../assets/sent.png'
+import check from '../assets/check.png'
+
 import { motion } from "framer-motion"
 import { useEffect, useState, useContext } from "react"
 
@@ -67,7 +72,6 @@ export const UserCard = (props) => {
                     whileTap={{
                         scale:0.95
                     }}
-                    style={{ color: 'green' }}
                     onClick={() => sendRequest()}>
                         <img src={plus} className='usercard-icon' alt="" />
                         add
@@ -78,14 +82,16 @@ export const UserCard = (props) => {
                 setStatusBtn(
                     <motion.div className='usercard-button'
                     whileHover={{
-                        backgroundColor: "#3b5d6f"
+                        backgroundColor: "#f94449"
                     }}
                     whileTap={{
                         scale:0.95
                     }}
-                    style={{ color: 'red' }}
+                    style={{
+                        borderColor: "#f94449"
+                    }}
                     onClick={() => removeRequest()}>
-                        <img src={plus} className='usercard-icon' alt="" />
+                        <img src={close} className='usercard-icon' alt="" />
                         cancel
                     </motion.div>
                 );
@@ -99,9 +105,8 @@ export const UserCard = (props) => {
                     whileTap={{
                         scale:0.95
                     }}
-                    style={{ color: 'green' }}
                     onClick={() => acceptRequest()}>
-                        <img src={plus} className='usercard-icon' alt="" />
+                        <img src={check} className='usercard-icon' alt="" />
                         accept
                     </motion.div>
                 );
@@ -110,14 +115,16 @@ export const UserCard = (props) => {
                 setStatusBtn(
                     <motion.div className='usercard-button'
                     whileHover={{
-                        backgroundColor: "#3b5d6f"
+                        backgroundColor: "#f94449"
                     }}
                     whileTap={{
                         scale:0.95
                     }}
-                    style={{ color: 'red' }}
+                    style={{
+                        borderColor: "#f94449"
+                    }}
                     onClick={() => sendRequest()}>
-                        <img src={plus} className='usercard-icon' alt="" />
+                        <img src={close} className='usercard-icon' alt="" />
                         remove
                     </motion.div>
                 )
