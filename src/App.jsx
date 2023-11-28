@@ -20,6 +20,7 @@ import { GroupPage } from './pages/GroupPage';
 import { CalendarPage } from './pages/CalendarPage';
 import { PlanPage } from './pages/PlanPage';
 import { ProfilePage } from './pages/ProfilePage';
+import { CalendarGroupPage } from './pages/CalendarGroupPage';
 
 function App() {
   const api = "http://localhost:3000/"
@@ -68,6 +69,7 @@ function App() {
           <Route path='/signup' element={<SignupPage auth={auth}/>}></Route>
           <Route path='/findfriends' element={<FriendsPage auth={auth}/>}></Route>
           <Route path='/createGroup' element={<GroupPage auth={auth}/>}></Route>
+          <Route path='/calendarGroup' element={<CalendarGroupPage auth={auth}/>}></Route>
           <Route path='/calendar' element={<CalendarPage auth={auth}/>}></Route>
           <Route path='/plans' element={<PlanPage auth={auth}/>}></Route>
           <Route path='/profile' element={<ProfilePage auth={auth}/>}></Route>

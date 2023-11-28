@@ -32,7 +32,7 @@ export const StartPage = (props) => {
     }
 
     const onCalendarClickHandler = () => {
-        navigate('/calendar');
+        navigate('/calendarGroup');
     }
 
     const onPlanClickHandler = () => {

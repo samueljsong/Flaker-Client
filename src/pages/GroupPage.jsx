@@ -5,6 +5,7 @@ import '../style/GroupPage.css'
 import { motion } from "framer-motion"
 import { Link, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react';
+import { setCardPicture } from '../util/picture'
 
 //components
 import { UserCard } from '../components/UserCard'
@@ -26,6 +27,17 @@ export const GroupPage = (props) => {
 
     const [search, setSearch] = useState("")
     const [allFriends, setAllFriends] = useState([])
+    
+    const [group, setGroup] = useState([]);
+
+    const addFriendToGroup = (id) => {
+        setGroup([...group, id]);
+    }
+
+    const removeFromGroup = (id) => {
+        const newList = group.filter((num) => num !== id)
+        setGroup(newList)
+    }
 
     //Create group modal
     const [createGroup, setCreateGroup] = useState(false);
@@ -82,39 +94,39 @@ export const GroupPage = (props) => {
                 </motion.div>
             </div>
             <motion.div className='gp-result-container'
-            initial={{opacity: 0, y:20}} 
-            animate={{opacity: 1, y: 0}} 
-            transition={{duration: "0.5", delay: 0.7}}>
+                initial={{opacity: 0, y:20}} 
+                animate={{opacity: 1, y: 0}} 
+                transition={{duration: "0.5", delay: 0.7}}>
                 {
                     allFriends.map(user => {
                         return <motion.div key={user.user_id}
                         initial={{opacity: 0, y:10}} 
                         animate={{opacity: 1, y: 0}} 
                         transition={{duration: "0.2"}}>
-                                <FriendCard username={user.username} userid={user.user_id}/>
+                                <FriendCard removeFromGroup={removeFromGroup} addToGroup={addFriendToGroup} username={user.username} userid={user.user_id} user_pic={user.user_pic}/>
                             </motion.div>
                     })
                 }
             </motion.div>
             <motion.div className='gp-gonext'
-            onClick={onCreateGroupClickHandler}
-            initial={{opacity: 0, y:20}} 
-            animate={{opacity: 1, y: 0}} 
-            transition={{duration: "0.5", delay: 0.85}}>
+                onClick={onCreateGroupClickHandler}
+                initial={{opacity: 0, y:20}} 
+                animate={{opacity: 1, y: 0}} 
+                transition={{duration: "0.5", delay: 0.85}}>
                 <motion.div className='gp-button'
-                whileHover={{
-                    y: -5,
-                    backgroundColor: "#74634c",
-                }}
-                whileTap={{
-                    scale:0.97
-                }}>
-                    <p className='gp-button-text'>Create Group</p>
+                    whileHover={{
+                        y: -5,
+                        backgroundColor: "#74634c",
+                    }}
+                    whileTap={{
+                        scale:0.97
+                    }}>
+                        <p className='gp-button-text'>Create Group</p>
                 </motion.div>
             </motion.div>
 
             {
-                createGroup ? <CreateGroupModal closeModal={onCreateGroupClickHandler}/> : <></>
+                createGroup ? <CreateGroupModal closeModal={onCreateGroupClickHandler} group={group}/> : <></>
             }
 
         </div>

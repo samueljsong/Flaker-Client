@@ -11,16 +11,36 @@ import logoutimg from '../assets/logout.png'
 //dependencies
 import { Link, useNavigate} from "react-router-dom"
 import { motion } from "framer-motion"
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 //Context
 import { ApiContext } from '../context/ApiContext';
 import { CookieContext } from "../context/CookieContext"
+import { setCardPicture } from "../util/picture"
 
 export const Navbar = (props) => {
     const navigate = useNavigate();
     const api = useContext(ApiContext);
     const cookies = useContext(CookieContext);
+    const [profile, setProfile] = useState();
+
+    useEffect(() => {
+        fetch(api + 'getUserID', {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-type" : "application/json"
+            },
+            body: JSON.stringify({
+                session: cookies.get('session')
+            })
+        })
+            .then(res => res.json())
+            .then(json => {
+                const pic = setCardPicture(json.user_pic)
+                setProfile(pic)
+            })
+    }, [])
 
     const onProfileClickHandler = () => {
         navigate('/profile')
@@ -49,7 +69,8 @@ export const Navbar = (props) => {
                     console.log("ERROR: User failed to log out");
                 }
             })
-      }
+    }
+    
 
     return(
     
@@ -64,7 +85,7 @@ export const Navbar = (props) => {
                     props.auth ? <>
                             <Link to={'/start'} className="navbar-link">
                                 <img className="navbar-icon" src={start} alt="" /><p className="navbar-none">Start</p>
-                            </Link><Link to={'/calendar'} className="navbar-link">
+                            </Link><Link to={'/calendarGroup'} className="navbar-link">
                                 <img className="navbar-icon" src={calendar} alt="" /><p className="navbar-none">Calendars</p>
                             </Link></> : <></>
                 }
@@ -79,9 +100,9 @@ export const Navbar = (props) => {
                                     <img className="navbar-icon" src={logoutimg} alt="" />
                                     <p className="navbar-none">Logout</p>
                                 </div>
-                                <div className="navbar-profile"
-                                onClick={onProfileClickHandler}>
-                                </div></> : <></>
+                                <img src={profile} className="navbar-profile"
+                                onClick={onProfileClickHandler}/>
+                                </> : <></>
                     }
                     
                 <span className="navbar-spacing"></span>

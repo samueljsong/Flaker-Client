@@ -1,0 +1,11 @@
+.groupcard-container{
+    display: grid;
+    /* grid-template-columns: 20% 45% 35% ; */
+    align-items: center;
+    height: 6rem;
+    width: 100%;
+    background-color: rgb(50, 49, 49);
+    border-radius: 50px;
+    justify-items: center;
+    cursor: pointer;
+}
