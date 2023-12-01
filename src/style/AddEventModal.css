@@ -59,6 +59,7 @@
     width: 90%;
     border: none;
     color: white;
+    font-size: 1rem;
 }
 
 .aem-input:focus{
@@ -75,14 +76,16 @@
 .aem-start-date{
     width: 45%;
     height: 100%;
-    background-color: black;
+    display: grid;
+    align-items: center;
     border-radius: 10px;
 }
 
 .aem-end-date{
     width: 45%;
     height: 100%;
-    background-color: black;
+    display: grid;
+    align-items: center;
     border-radius: 10px;
 }
 
@@ -97,7 +100,20 @@
 .aem-details{
     width: 90%;
     height: 13rem;
-    background-color: black;
+    border: solid white 1px;
+    display: grid;
+    place-items: center;
+}
+
+.aem-details-input{
+    height: 13rem;
+    width: 83%;
+    resize: none;
+    background-color: transparent;
+    padding: 1rem;
+    border: solid 1px white;
+    border-radius: 10px;
+    color: white;
 }
 
 .aem-create{

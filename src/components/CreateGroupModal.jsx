@@ -34,7 +34,9 @@ export const CreateGroupModal = (props) => {
         })
             .then(res => res.json())
             .then(json => {
-                navigate('/calendarGroup')
+                if(json.success){
+                    navigate('/calendarGroup')
+                }
             })
     }
     

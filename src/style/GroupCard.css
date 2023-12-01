@@ -1,6 +1,6 @@
 .groupcard-container{
     display: grid;
-    /* grid-template-columns: 20% 45% 35% ; */
+    grid-template-columns: 20% 45% 35% ;
     align-items: center;
     height: 6rem;
     width: 100%;
@@ -8,4 +8,34 @@
     border-radius: 50px;
     justify-items: center;
     cursor: pointer;
+}
+
+.groupcard-profile{
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    z-index: 10;
+    background-color: white;
+}
+
+.groupcard-name{
+    display: grid;
+    grid-column-start: 2;
+    justify-self: start;
+}
+
+.groupcard-total-members-container{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    place-items: center;
+}
+
+.groupcard-total-members{
+    display: grid;
+    height: 50%;
+    width: 70%;
+    border: solid 1px white;
+    border-radius: 50px;
+    place-items: center;
 }

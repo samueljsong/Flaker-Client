@@ -29,6 +29,21 @@
     align-items: center;
 }
 
+.cp-goback{
+    height: 2rem;
+    width: 2rem;
+    padding: 0.25rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.cp-title-container{
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    align-items: center;
+}
+
 .cp-calendar{
     width: 100%;
     aspect-ratio: 1/1;

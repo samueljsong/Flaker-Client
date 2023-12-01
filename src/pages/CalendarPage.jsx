@@ -6,7 +6,9 @@ import { motion } from "framer-motion"
 //libraries
 import Calendar from 'react-calendar';
 
+//icons
 import plus from '../assets/plus.png'
+import back from '../assets/back.png'
 
 //components
 import { AddEventModal } from '../components/AddEventModal';
@@ -31,6 +33,11 @@ export const CalendarPage = (props) => {
         }
     }, [props.auth])
 
+    const onClickGoBack = () => {
+        props.onClickGroupCard();
+        props.calendarID(0);
+    }
+
     return(
         <>
             <div className='cp-container'>
@@ -47,7 +54,18 @@ export const CalendarPage = (props) => {
                 transition={{
                     duration:0.5
                 }}>
-                    <h1 style={{color: "white"}}>Your Group Name</h1>
+                    <div className='cp-title-container'>
+                        <motion.img className='cp-goback' src={back} alt="" 
+                        onClick={onClickGoBack}
+                        transition={{duration: "0.25"}}
+                        whileHover={{
+                            y: -5
+                        }}
+                        whileTap={{
+                            scale:0.85
+                        }}/>
+                        <h1 style={{color: "white"}}>Your Group Name</h1>
+                    </div>
                     <div className='cp-calendar'>
                         <Calendar calendarType='gregory' onChange={onChange} value={value} />
                     </div>
@@ -212,7 +230,7 @@ export const CalendarPage = (props) => {
                     </div>
                 </motion.div>
                 {
-                    addEvent ?  <AddEventModal closeHandler={onAddEventClickHandler}/> : <></>
+                    addEvent ?  <AddEventModal group_id={props.group_id} date={value} closeHandler={onAddEventClickHandler}/> : <></>
                 }
             </div>
         </>

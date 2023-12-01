@@ -70,7 +70,7 @@ function App() {
           <Route path='/findfriends' element={<FriendsPage auth={auth}/>}></Route>
           <Route path='/createGroup' element={<GroupPage auth={auth}/>}></Route>
           <Route path='/calendarGroup' element={<CalendarGroupPage auth={auth}/>}></Route>
-          <Route path='/calendar' element={<CalendarPage auth={auth}/>}></Route>
+          {/* <Route path='/calendar' element={<CalendarPage auth={auth}/>}></Route> */}
           <Route path='/plans' element={<PlanPage auth={auth}/>}></Route>
           <Route path='/profile' element={<ProfilePage auth={auth}/>}></Route>
         </Routes>
