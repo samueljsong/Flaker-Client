@@ -21,9 +21,14 @@ export const AddEventModal = (props) => {
     const [description, setDescription] = useState("");
     const [startTime, setStartTime] = useState("");
     const [endTime, setEndTime] = useState("");
+    const [location, setLocation] = useState("");
 
     const onTitleChangeHandler = (e) => {
         setTitle(e.target.value)
+    }
+
+    const onLocationChangeHandler = (e) => {
+        setLocation(e.target.value)
     }
 
     const onDescriptionChangeHandler = (e) => {
@@ -39,6 +44,12 @@ export const AddEventModal = (props) => {
     }
 
     const createEvent = () => {
+        if(startTime == undefined || startTime == null){
+            return
+        }
+        if(endTime == undefined || startTime == null){
+            return
+        }
         fetch(api + 'event/create', {
             method:"POST",
             mode:"cors",
@@ -52,14 +63,14 @@ export const AddEventModal = (props) => {
                 startTime: startTime,
                 endTime: endTime,
                 date: props.date,
-                group_id: props.group_id
+                group_id: props.group_id,
+                location: location
             })
         })
             .then(res => res.json())
             .then(json => {
-                if(json.success){
-                    props.closeHandler
-                }
+                props.closeHandler()
+                props.getAllEvents()
             })
     }
 
@@ -109,6 +120,9 @@ export const AddEventModal = (props) => {
                 </div>
                 <div className='aem-input-container'>
                     <input type="text" className='aem-input' placeholder='Event Title' onChange={onTitleChangeHandler}/>
+                </div>
+                <div className='aem-input-container'>
+                    <input type="text" placeholder='Location' className='aem-location-input' onChange={onLocationChangeHandler}/>
                 </div>
                 <div className='aem-info'>
                     <Dropdown className='aem-start-date' options={startOptions} value={"Start Time"} placeholder="Select an option" onChange={onStartTimeChangeHandler}/>

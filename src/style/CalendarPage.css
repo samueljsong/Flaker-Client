@@ -35,13 +35,19 @@
     padding: 0.25rem;
     border-radius: 50%;
     cursor: pointer;
+    grid-column-start: 1;
 }
 
 .cp-title-container{
-    display: flex;
+    display: grid;
+    grid-template-columns: 3rem auto 12rem;
     width: 100%;
     gap: 1rem;
     align-items: center;
+}
+
+.cp-groupname{
+    grid-column-start: 2;
 }
 
 .cp-calendar{
@@ -74,12 +80,38 @@
     border-bottom: solid 1px white;
 }
 
+.cp-delete-group{
+    height: 2rem;
+    width: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2b2b2b;
+    gap: 1rem;
+    border-radius: 50px;
+    justify-self: end;
+    color: white;
+    cursor: pointer;
+    grid-column-start: 3;
+}
+
 .cp-add-event{
     display: flex;
     height: 2.5rem;
     align-items: center;
     gap: 0.5rem;
-    border: solid 1px white;
+    
+    border-radius: 50px;
+    width: 8rem;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.cp-recycle{
+    display: flex;
+    height: 2.5rem;
+    align-items: center;
+    gap: 0.5rem;
     border-radius: 50px;
     width: 8rem;
     justify-content: center;
@@ -102,13 +134,7 @@
     overflow: scroll;
 }
 
-.cp-events{
-    height: auto;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 15% 85%;
-    flex-direction: column;
-}
+
 
 .cp-hours{
     height: 5rem;
@@ -124,90 +150,4 @@
 
 .cp-events-container::-webkit-scrollbar {
     display: none;
-}
-
-.cp-event{
-    display: grid;
-    justify-self: center;
-    width: 75%;
-    height: 100%;
-    background-color: #1f1f1f;
-    grid-column-start: 2;
-    grid-row-start: 1;
-}
-
-.h-0{
-    grid-row-start: 1;
-}
-.h-1{
-    grid-row-start: 2;
-}
-.h-2{
-    grid-row-start: 3;
-}
-.h-3{
-    grid-row-start: 4;
-}
-.h-4{
-    grid-row-start: 5;
-}
-.h-5{
-    grid-row-start: 6;
-}
-.h-6{
-    grid-row-start: 7;
-}
-.h-7{
-    grid-row-start: 8;
-}
-.h-8{
-    grid-row-start: 9;
-}
-.h-9{
-    grid-row-start: 10;
-}
-.h-10{
-    grid-row-start: 11;
-}
-.h-11{
-    grid-row-start: 12;
-}
-.h-12{
-    grid-row-start: 13;
-}
-.h-13{
-    grid-row-start: 14;
-}
-.h-14{
-    grid-row-start: 15;
-}
-.h-15{
-    grid-row-start: 16;
-}
-.h-16{
-    grid-row-start: 17;
-}
-.h-17{
-    grid-row-start: 18;
-}
-.h-18{
-    grid-row-start: 19;
-}
-.h-19{
-    grid-row-start: 20;
-}
-.h-20{
-    grid-row-start: 21;
-}
-.h-21{
-    grid-row-start: 22;
-}
-.h-22{
-    grid-row-start: 23;
-}
-.h-23{
-    grid-row-start: 24;
-}
-.h-24{
-    grid-row-start: 25;
 }

@@ -115,7 +115,7 @@ export const StartPage = (props) => {
                             }
                         }>
                         <img className='dp-icons' src={clock} alt="" />
-                        <h1 className='dp-title'>4. Plan</h1>
+                        <h1 className='dp-title'>4. Plans</h1>
                         <p>Create events for everyone</p>
                     </motion.div>
                 </div>

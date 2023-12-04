@@ -24,23 +24,23 @@ export const Navbar = (props) => {
     const cookies = useContext(CookieContext);
     const [profile, setProfile] = useState();
 
-    useEffect(() => {
-        fetch(api + 'getUserID', {
-            method: "POST",
-            mode: "cors",
-            headers: {
-                "Content-type" : "application/json"
-            },
-            body: JSON.stringify({
-                session: cookies.get('session')
-            })
-        })
-            .then(res => res.json())
-            .then(json => {
-                const pic = setCardPicture(json.user_pic)
-                setProfile(pic)
-            })
-    }, [])
+    // useEffect(() => {
+    //     fetch(api + 'getUserID', {
+    //         method: "POST",
+    //         mode: "cors",
+    //         headers: {
+    //             "Content-type" : "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //             session: cookies.get('session')
+    //         })
+    //     })
+    //         .then(res => res.json())
+    //         .then(json => {
+    //             const pic = setCardPicture(json.user_pic)
+    //             setProfile(pic)
+    //         })
+    // }, [])
 
     const onProfileClickHandler = () => {
         navigate('/profile')
