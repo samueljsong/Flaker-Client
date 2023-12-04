@@ -32,7 +32,7 @@ export const UserCard = (props) => {
     </motion.div>)
 
     const getStatus = async () => {
-        fetch(api + 'getStatus', {
+        fetch(api + 'friends/getStatus', {
             method: "POST",
             mode: "cors",
             headers:{
@@ -90,7 +90,7 @@ export const UserCard = (props) => {
                     style={{
                         borderColor: "#f94449"
                     }}
-                    onClick={() => removeRequest()}>
+                    onClick={() => removeFriend()}>
                         <img src={close} className='usercard-icon' alt="" />
                         cancel
                     </motion.div>
@@ -123,7 +123,7 @@ export const UserCard = (props) => {
                     style={{
                         borderColor: "#f94449"
                     }}
-                    onClick={() => sendRequest()}>
+                    onClick={() => removeFriend()}>
                         <img src={close} className='usercard-icon' alt="" />
                         remove
                     </motion.div>
@@ -134,7 +134,7 @@ export const UserCard = (props) => {
 
     const sendRequest = async () => {
         console.log("sending request")
-        fetch(api + 'sendRequest', {
+        fetch(api + 'friends/sendRequest', {
             method: "POST",
             mode: "cors",
             headers:{
@@ -152,7 +152,6 @@ export const UserCard = (props) => {
                     setStatus(1);
                 }
                 if(!json.success){
-                    setAuth(false);
                     console.log("ERROR: request not sent");
                 }
             })
@@ -160,7 +159,7 @@ export const UserCard = (props) => {
 
     const acceptRequest = async () => {
         console.log("accepting request")
-        fetch(api + 'acceptRequest', {
+        fetch(api + 'friends/acceptRequest', {
             method: "POST",
             mode: "cors",
             headers:{
@@ -178,15 +177,14 @@ export const UserCard = (props) => {
                     setStatus(3);
                 }
                 if(!json.success){
-                    setAuth(false);
                     console.log("ERROR: request not accepted");
                 }
             })
     }
 
-    const removeRequest = async () => {
+    const removeFriend = async () => {
         console.log("removing request")
-        fetch(api + 'removeRequest', {
+        fetch(api + 'friends/removeFriend', {
             method: "POST",
             mode: "cors",
             headers:{
@@ -194,17 +192,17 @@ export const UserCard = (props) => {
             },
             body: JSON.stringify({
               session: cookies.get('session'),
-              username: props.username
+              userid: props.userid
             })
         })
             .then(res => res.json())
                 .then(json => {
                     if(json.success){
-                        console.log("SUCCESS: request removed" );
+                        console.log("SUCCESS: friend removed" );
+                        setStatus(0);
                     }
                     if(!json.success){
-                        setAuth(false);
-                        console.log("ERROR: failed to remove request");
+                        console.log("ERROR: failed to remove friend");
                     }
                 })
     }
