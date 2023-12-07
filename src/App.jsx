@@ -23,8 +23,8 @@ import { ProfilePage } from './pages/ProfilePage';
 import { CalendarGroupPage } from './pages/CalendarGroupPage';
 
 function App() {
-  // const api = "http://localhost:3000/"
-  const api = "https://spwfbkmjzi.us14.qoddiapp.com/"
+  const api = "http://localhost:3000/"
+  // const api = "https://spwfbkmjzi.us14.qoddiapp.com/"
   const cookies = new Cookies();
   const location = useLocation()
   const [auth, setAuth] = useState(false);
