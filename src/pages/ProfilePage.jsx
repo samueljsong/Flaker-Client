@@ -200,6 +200,8 @@ export const ProfilePage = (props) => {
                         :
                         <>
                         <div className='profile-friends'>
+                            <div className='profile-friends-text'>
+                            </div>
                             {
                                 groups.map(group => {
                                     return <motion.div key={group.group_id}
