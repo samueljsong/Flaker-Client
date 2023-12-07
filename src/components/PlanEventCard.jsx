@@ -18,7 +18,7 @@ export const PlanEventCard = ({title, location, startTime, endTime, description}
     const cookies = useContext(CookieContext);
 
     return(
-        <div className='eventcard-container'>
+        <div className='planeventcard-container'>
             <div className='eventcard-title'>
                 <h2>{title}</h2>
             </div>
