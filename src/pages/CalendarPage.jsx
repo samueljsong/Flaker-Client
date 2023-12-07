@@ -106,6 +106,10 @@ export const CalendarPage = (props) => {
         props.calendarID(0);
     }
 
+    const getEventsAgain = () => {
+        getAllEvents();
+    }
+
     return(
         <>
             
@@ -205,7 +209,7 @@ export const CalendarPage = (props) => {
                     addEvent ?  <AddEventModal getAllEvents={getAllEvents} group_id={props.group_id} date={value} closeHandler={onAddEventClickHandler}/> : <></>
                 }
                 {
-                    recycle ? <RecycleComponent closeComponent={onRecycleClickHandler} group_id={props.group_id} getAllEvents={getAllEvents}/> : <></>
+                    recycle ? <RecycleComponent getEventsAgain={getEventsAgain} closeComponent={onRecycleClickHandler} group_id={props.group_id} getAllEvents={getAllEvents}/> : <></>
                 }
             </div>
         </>

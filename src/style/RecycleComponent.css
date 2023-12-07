@@ -28,6 +28,7 @@
     flex-direction: column;
     gap: 1rem;
     height: 70vh;
+    width: 90%;
     align-self: center;
     grid-column-start: 2;
     grid-column-end: 3;

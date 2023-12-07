@@ -56,7 +56,7 @@ export const RecycleComponent = (props) => {
                                     location={event.location} date={event.date} 
                                     startTime={event.start_time} endTime={event.end_time} 
                                     description={event.description} owner={event.creator_id}
-                                    getAllEvents={getAllEvents}/>
+                                    getAllEvents={getAllEvents} getEventsAgain={props.getEventsAgain}/>
                         })
                     }
                 </div>

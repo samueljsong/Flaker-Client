@@ -1,5 +1,5 @@
 .eventcard-container{
-    min-height: 15rem;
+    min-height: 10rem;
     width: 100%;
     background-color: #2b2b2b;
     border-radius: 10px;
@@ -16,15 +16,12 @@
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     color: white;
 }
 
 .ec-trash{
     justify-self: end;
-    cursor: pointer;
-}
-
-.ec-restore{
     cursor: pointer;
 }
 

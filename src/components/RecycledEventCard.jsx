@@ -1,5 +1,5 @@
 // style
-import '../style/EventCard.css'
+import '../style/RecycledEventCard.css'
 
 //dependencies
 import { motion } from 'framer-motion'
@@ -8,11 +8,12 @@ import { motion } from 'framer-motion'
 import check from '../assets/check.png'
 import close from '../assets/close.png'
 import trash from '../assets/trash.png'
+import restore from '../assets/restore.png'
 import { useContext } from 'react'
 import { ApiContext } from '../context/ApiContext'
 import { CookieContext } from '../context/CookieContext'
 
-export const RecycledEventCard = ({event_id, title, location, date, startTime, endTime, description, owner, getAllEvents}) => {
+export const RecycledEventCard = ({event_id, title, location, date, startTime, endTime, description, owner, getAllEvents, getEventsAgain}) => {
 
     const api = useContext(ApiContext);
     const cookies = useContext(CookieContext);
@@ -35,10 +36,35 @@ export const RecycledEventCard = ({event_id, title, location, date, startTime, e
             })
     }
 
+    const onRestoreHandler = () => {
+        fetch(api + `event/restoreEvent/${event_id}`, {
+            method: "PATCH",
+            mode: "cors",
+            headers: {
+                "Content-Type" : "application/json"
+            }
+        })
+            .then(res => res.json())
+            .then(json => {
+                if(json.success){
+                    getAllEvents();
+                    getEventsAgain();
+                }
+            })
+    }
+
     return(
         <div className='eventcard-container'>
             <div className='eventcard-title'>
                 <h2>{title}</h2>
+                <motion.img className='ec-icon ec-restore' src={restore} alt="" 
+                whileHover={{
+                    scale:1.1
+                }}
+                whileTap={{
+                    scale: 0.9
+                }}
+                onClick={onRestoreHandler}/>
                 <motion.img className='ec-icon ec-trash' src={trash} alt="" 
                 whileHover={{
                     scale:1.1
