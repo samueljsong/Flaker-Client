@@ -23,9 +23,8 @@ import { ProfilePage } from "./pages/ProfilePage";
 import { CalendarGroupPage } from "./pages/CalendarGroupPage";
 
 function App() {
-    // const api = "http://localhost:3000/"
-    //   const api = "https://hcukixwgsp.ca01.qoddiapp.com/"
-    const api = "https://flaker-s.vercel.app/";
+    // const api = "http://localhost:3000/";
+    const api = "https://flaker-s.onrender.com/";
     const cookies = new Cookies();
     const location = useLocation();
     const [auth, setAuth] = useState(false);
